@@ -261,7 +261,7 @@ body{
     <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:6px;line-height:1.5">Тест показал симптомы - профиль найдёт причины</p>
 
     <div id="photo-block" style="display:none;margin-top:22px;text-align:center">
-      <img id="coach-photo" src="photo.jpg" alt="Юлия Артемова" style="width:112px;height:112px;border-radius:50%;object-fit:cover;border:2px solid rgba(217,164,65,.35)">
+      <img id="coach-photo" src="photo.jpeg" alt="Юлия Артемова" style="width:112px;height:112px;border-radius:50%;object-fit:cover;border:2px solid rgba(217,164,65,.35)">
       <div style="font-size:14.5px;font-weight:700;color:var(--ink);margin-top:10px">Юлия Артемова</div>
       <div style="font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.5">Health-коуч предпринимателей и руководителей</div>
     </div>
@@ -495,7 +495,15 @@ function showResult(){
   const photo = $('coach-photo');
   if(photo){
     photo.onload = function(){ $('photo-block').style.display = 'block'; };
-    photo.onerror = function(){ $('photo-block').style.display = 'none'; };
+    photo.onerror = function(){
+      /* iOS часто сохраняет файл как .jpeg - пробуем второе расширение */
+      if(!photo.dataset.retried){
+        photo.dataset.retried = '1';
+        photo.src = 'photo.jpg';
+      } else {
+        $('photo-block').style.display = 'none';
+      }
+    };
     if(photo.complete && photo.naturalWidth > 0) $('photo-block').style.display = 'block';
   }
 
