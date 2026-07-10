@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Тест: насколько ты близок к выгоранию?</title>
+<title>Тест: насколько вы близки к выгоранию?</title>
 <meta name="description" content="8 вопросов · 2 минуты. Узнай свою зону энергии, слабые места и первые шаги.">
-<meta property="og:title" content="На что уходит твоя энергия?">
-<meta property="og:description" content="Мини-тест на 2 минуты: твоя зона энергии, слабые места и что с этим делать.">
+<meta property="og:title" content="На что уходит ваша энергия?">
+<meta property="og:description" content="Мини-тест на 2 минуты: ваша зона энергии, слабые места и что с этим делать.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -213,10 +213,10 @@ body{
   <!-- ЭКРАН 1: старт -->
   <div id="screen-start">
     <div class="eyebrow">Тест · 2 минуты</div>
-    <h1>Насколько ты близок к&nbsp;выгоранию?</h1>
-    <p class="sub">8 коротких вопросов про сон, энергию и фокус. Отвечай честно - в конце покажу, в какой ты зоне, какие у тебя слабые места и что с этим делать.</p>
+    <h1>Насколько вы близки к&nbsp;выгоранию?</h1>
+    <p class="sub">8 коротких вопросов про сон, энергию и фокус. Отвечайте честно - в конце покажу, в какой вы зоне, какие у вас слабые места и что с этим делать.</p>
     <div class="battery-wrap">
-      <div class="battery-label"><span>Твой заряд</span><span>100%</span></div>
+      <div class="battery-label"><span>Ваш заряд</span><span>100%</span></div>
       <div class="battery"><div class="battery-fill" style="width:100%"></div></div>
     </div>
     <button class="btn-start" onclick="startQuiz()">Начать тест</button>
@@ -226,7 +226,7 @@ body{
   <!-- ЭКРАН 2: вопросы -->
   <div id="screen-quiz" class="hidden">
     <div class="battery-wrap">
-      <div class="battery-label"><span>Твой заряд</span><span id="charge-pct">100%</span></div>
+      <div class="battery-label"><span>Ваш заряд</span><span id="charge-pct">100%</span></div>
       <div class="battery"><div class="battery-fill" id="battery-fill" style="width:100%"></div></div>
     </div>
     <div class="q-count" id="q-count">Вопрос 1 из 8</div>
@@ -245,20 +245,20 @@ body{
     <p class="result-text" id="result-text"></p>
 
     <div class="flags hidden" id="flags-block">
-      <div class="flags-title">Твои слабые места</div>
+      <div class="flags-title">Ваши слабые места</div>
       <div id="flags-list"></div>
     </div>
 
     <div class="flags hidden" id="razbor-block">
-      <div class="flags-title">Мини-разбор твоей связки</div>
+      <div class="flags-title">Что происходит в вашей системе</div>
       <div id="razbor-text" style="font-size:14.5px;line-height:1.55;color:#454C53;padding-bottom:8px"></div>
     </div>
 
     <a id="oprosnik-link" href="#profil" style="text-decoration:none">
       <button class="btn-cta" onclick="if(typeof ym==='function'&&METRIKA_ID)ym(METRIKA_ID,'reachGoal','oprosnik_click');showApp(true)">Составить Health-профиль → 3 мин</button>
     </a>
-    <p style="font-size:12.5px;color:var(--gold-deep);text-align:center;margin-top:12px;line-height:1.6;letter-spacing:.02em;font-weight:500">17 вопросов о сне, энергии и нагрузке</p>
-    <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:6px;line-height:1.5">В конце - три шага под ваши ответы. Вижу только я</p>
+    <p style="font-size:12.5px;color:var(--gold-deep);text-align:center;margin-top:12px;line-height:1.6;letter-spacing:.02em;font-weight:500">Три персональные рекомендации по вашим ответам</p>
+    <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:6px;line-height:1.5">Тест показал симптомы - профиль найдёт причины</p>
 
     <div id="photo-block" style="display:none;margin-top:22px;text-align:center">
       <img id="coach-photo" src="photo.jpg" alt="Юлия Артемова" style="width:112px;height:112px;border-radius:50%;object-fit:cover;border:2px solid rgba(217,164,65,.35)">
@@ -266,10 +266,7 @@ body{
       <div style="font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.5">Health-коуч предпринимателей и руководителей</div>
     </div>
 
-    <a id="cta-link" href="#" target="_blank" style="text-decoration:none">
-      <button id="cta-btn" style="width:100%;margin-top:18px;background:#F1EFEA;color:var(--ink);border:1px solid var(--line);padding:15px;border-radius:14px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer" onclick="trackCta()">Есть вопрос? Напишите мне</button>
-    </a>
-    <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:6px;line-height:1.5">Откроется Telegram - сообщение уже готово. Если поле пустое, просто вставьте: текст скопирован</p>
+    <a id="cta-link" href="#" target="_blank" onclick="trackCta()" style="display:block;text-align:center;margin-top:20px;font-size:13.5px;color:var(--gold-deep);font-weight:600;text-decoration:none;padding:8px">Уже готовы? Записаться на аудит →</a>
     <button class="btn-restart" onclick="restart()">Пройти ещё раз</button>
   </div>
 
@@ -282,7 +279,7 @@ body{
   <div id="s-start">
     <div class="eyebrow">Шаг 2</div>
     <h1>Health-профиль - 3 минуты</h1>
-    <p class="sub">17 вопросов о сне, энергии и нагрузке. В конце - персональные рекомендации под ваши ответы. Отвечайте как есть: точная картина даёт точный разбор. Ответы вижу только я.</p>
+    <p class="sub">Тест показал симптомы. Эти 16 вопросов - о причинах: во сколько ложитесь, что забирает силы, чем восстанавливаетесь. В конце - персональные рекомендации под ваши ответы.</p>
     <button class="btn-next" style="width:100%" onclick="start()">Начать</button>
     <button onclick="location.hash='';showApp(false)" style="display:block;width:100%;margin-top:10px;background:transparent;border:none;color:var(--muted);font-size:14px;font-weight:500;padding:8px;cursor:pointer">← Вернуться к тесту</button>
   </div>
@@ -307,17 +304,20 @@ body{
   <div id="s-done" class="hidden">
     <div class="done-emoji">✨</div>
     <h1>Ваш Health-профиль готов</h1>
-    <p class="sub">Остался один шаг: нажмите кнопку - полный текст профиля скопируется и откроется чат. Просто вставьте и отправьте. В течение дня вернусь к вам с персональным разбором и временем аудита.</p>
-    <div style="background:#F8F7F4;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px" id="recs-block">
-      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:10px">Первые рекомендации</div>
+    <p class="sub">Вот что видно по вашим ответам уже сейчас. Рекомендации остаются у вас - можно начать применять сегодня.</p>
+    <div style="background:#F8F7F4;border:1px solid var(--line);border-radius:14px;padding:18px 16px;margin-bottom:26px" id="recs-block">
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:10px">Ваши первые шаги</div>
       <div id="recs-list" style="font-size:14.5px;line-height:1.55;color:#454C53"></div>
-      <div style="font-size:12.5px;color:var(--muted);margin-top:10px">Полную стратегию соберём на аудите.</div>
+    </div>
+
+    <div style="border-top:1px solid var(--line);padding-top:22px">
+      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:8px">Что дальше</div>
+      <p style="font-size:14.5px;line-height:1.55;color:#454C53;margin-bottom:16px">Отправьте профиль - я изучу его заранее. Свяжусь с вами в течение дня, чтобы подобрать время аудита.</p>
     </div>
     <div class="summary" id="summary"></div>
     <button class="btn-copy" id="btn-copy" onclick="copyAll()">Отправить профиль в Telegram</button>
     <a class="btn-tg" id="btn-max" href="" target="_blank">Отправить профиль в MAX</a>
-    <button id="btn-copy2" onclick="copyFull()" style="display:block;width:100%;margin-top:10px;background:transparent;border:1px solid var(--line);border-radius:14px;color:var(--ink);font-size:14.5px;font-weight:600;padding:14px;cursor:pointer">Скопировать полную версию текстом</button>
-    <p style="font-size:12.5px;color:var(--muted);text-align:center;margin-top:10px;line-height:1.5">Кнопка сама копирует текст: в чате нажмите на поле ввода → «Вставить» → отправьте. Telegram: <b>@jua_artemova</b></p>
+    <p style="font-size:11.5px;color:rgba(107,104,98,.65);text-align:center;margin-top:10px;line-height:1.5">Текст скопируется сам - вставьте его в чат и отправьте</p>
     <div id="manual-box" style="display:none;margin-top:18px;padding:16px;background:#FFF;border:1px solid var(--line);border-radius:16px">
       <div style="font-size:13px;font-weight:700;color:var(--gold-deep);letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px">Если чат открылся пустым</div>
       <p style="font-size:13.5px;color:var(--muted);line-height:1.5;margin:0 0 10px">Нажмите кнопку ниже, затем «Скопировать» - и вставьте текст в чат.</p>
@@ -346,17 +346,17 @@ const OPROSNIK_URL = "#profil";
 const METRIKA_ID = "110504158";
 
 const QUESTIONS = [
-  "Просыпаешься разбитым, даже если спал 7-8 часов?",
-  "К обеду ловишь «туман» в голове - сложно сосредоточиться?",
-  "Держишься на кофе, сахаре или никотине, чтобы «дотянуть» день?",
-  "Решения, которые раньше принимал за минуту, теперь откладываешь?",
-  "Раздражаешься на близких или команду по мелочам?",
-  "Выходные не восстанавливают - в понедельник уже устал?",
-  "Забросил спорт и хобби, потому что «нет сил и времени»?",
-  "Ловишь мысль «так больше нельзя», но ничего не меняешь?"
+  "Просыпаетесь разбитым, даже если спали 7-8 часов?",
+  "К обеду ловите «туман» в голове - сложно сосредоточиться?",
+  "Держитесь на кофе, сахаре или никотине, чтобы «дотянуть» день?",
+  "Решения, которые раньше принимали за минуту, теперь откладываете?",
+  "Раздражаетесь на близких или команду по мелочам?",
+  "Выходные не восстанавливают - в понедельник уже устали?",
+  "Забросили спорт и хобби, потому что «нет сил и времени»?",
+  "Ловите мысль «так больше нельзя», но ничего не меняете?"
 ];
 
-/* Расшифровки для блока «Твои слабые места» - по номеру вопроса */
+/* Расшифровки для блока «Ваши слабые места» - по номеру вопроса */
 const FLAGS = [
   "Сон есть, а восстановления нет - значит, страдает качество сна, а не количество.",
   "«Туман» днём - признак перегруженной нервной системы, а не лени.",
@@ -444,18 +444,18 @@ function answer(isYes){
 function showResult(){
   $('screen-quiz').classList.add('hidden');
   $('screen-result').classList.remove('hidden');
-  $('score-line').textContent = `Твой результат: ${yesCount} «да» из 8`;
+  $('score-line').textContent = `Ваш результат: ${yesCount} «да» из 8`;
   /* Готовое сообщение с результатом - человеку остаётся нажать «отправить» */
   const zoneName = yesCount <= 2 ? 'зелёная' : (yesCount <= 5 ? 'жёлтая' : 'красная');
   const myYes = yesList.map(i => SHORT[i]).join(', ');
   const msg = 'Юлия, приветствую! Мой результат в тесте: ' + zoneName + ' зона, ' + yesCount + ' «да» из 8'
     + (myYes ? '. Мои «да»: ' + myYes : '')
-    + '. Есть вопрос по Health-аудиту.';
+    + '. Хочу записаться на Health-аудит.';
   $('cta-link').href = 'https://t.me/jua_artemova?text=' + encodeURIComponent(msg);
   window.__resultMsg = msg;
   $('oprosnik-link').href = OPROSNIK_URL;
 
-  /* Мини-разбор по связке ответов */
+  /* Короткий вывод по сочетанию ответов */
   const has = q => yesList.includes(q);
   let razbor = "";
   if(has(0) && has(1)){
@@ -467,7 +467,7 @@ function showResult(){
   } else if(has(2) && has(0)){
     razbor = "Стимуляторы днём + разбитое утро - организм берёт энергию в долг, а ночью не успевает его вернуть. Первый шаг: последний кофеин - до 14:00, неделю. Утро отблагодарит.";
   } else if(yesCount > 0){
-    razbor = "У каждого набора «да» своя механика - двух одинаковых выгораний не бывает. Полная картина собирается в Health-профиле: по нему видно, что именно даёт вашу связку.";
+    razbor = "У каждого набора «да» своя механика - двух одинаковых выгораний не бывает. Полная картина собирается в Health-профиле: по нему видно, что именно вас истощает.";
   }
   if(razbor){
     $('razbor-block').classList.remove('hidden');
@@ -504,19 +504,19 @@ function showResult(){
     badge.textContent = '🟢 Зелёная зона';
     badge.className = 'zone-badge zone-green';
     $('result-title').textContent = 'Ресурс в норме';
-    $('result-text').textContent = 'Ты в хорошей форме - и именно сейчас её проще всего закрепить. Два шага для зелёной зоны: стабильное время подъёма даже в выходные и час без экрана перед сном. Хочешь знать, как удерживать пик надолго, - напиши мне свою зону, подскажу пару приёмов под твой ритм.';
+    $('result-text').textContent = 'Вы в хорошей форме - и именно сейчас её проще всего закрепить. Два шага для зелёной зоны: стабильное время подъёма даже в выходные и час без экрана перед сном. Хотите знать, как удерживать пик надолго, - составьте Health-профиль, и я подскажу приёмы под ваш ритм.';
     track('quiz_finish_green');
   } else if(yesCount <= 5){
     badge.textContent = '🟡 Жёлтая зона';
     badge.className = 'zone-badge zone-yellow';
     $('result-title').textContent = 'Организм работает в долг';
-    $('result-text').textContent = 'Организм пока компенсирует, но каждый месяц в таком режиме - минус к энергии, фокусу и доходу. Первые два шага для жёлтой зоны: убрать кофеин после 15:00 и завести час без экрана перед сном. Остальное индивидуально - напиши мне свою зону, разберу твой результат и скажу, с чего начать именно тебе.';
+    $('result-text').textContent = 'Организм пока компенсирует, но каждый месяц в таком режиме - минус к энергии, фокусу и доходу. Первые два шага для жёлтой зоны: убрать кофеин после 15:00 и завести час без экрана перед сном. Остальное индивидуально: Health-профиль покажет, с чего начать именно вам.';
     track('quiz_finish_yellow');
   } else {
     badge.textContent = '🔴 Красная зона';
     badge.className = 'zone-badge zone-red';
     $('result-title').textContent = 'Системная перегрузка';
-    $('result-text').textContent = 'Это уже не «просто устал» - и само оно не пройдёт. Хорошая новость: почти всегда есть 2-3 конкретные «поломки», которые дают 80% проблемы. Что сделать уже сегодня: лечь до 23:00 и убрать кофеин после обеда. А дальше - напиши мне, разберу твой результат лично и подскажу план восстановления под твой график.';
+    $('result-text').textContent = 'Это уже не «просто устал» - и само оно не пройдёт. Хорошая новость: почти всегда есть 2-3 конкретные «поломки», которые дают 80% проблемы. Что сделать уже сегодня: лечь до 23:00 и убрать кофеин после обеда. Дальше нужен план под ваш график - его собираем на аудите.';
     track('quiz_finish_red');
   }
   if(window.updateSticky) window.updateSticky();
@@ -546,12 +546,10 @@ const Q = [
   ["Сон","Во сколько вы обычно ложитесь?","o",["До 23:00","23:00-24:00","00:00-01:00","После часа ночи","Каждый день по-разному"]],
   ["Сон","Просыпаетесь ли ночью?","o",["Нет, сплю до утра","1-2 раза, легко засыпаю обратно","Часто - крутятся мысли","Просыпаюсь под утро и уже не сплю"]],
   ["Сон","Чем занят последний час перед сном?","m",["Телефон, соцсети","Сериалы, ютуб","Работа, рабочие чаты","Книга","Дела по дому","Провожу время с семьёй"]],
-  ["Сон","Насколько отдохнувшим вы просыпаетесь?","s",["1 - разбитым","10 - полным сил"]],
   ["Энергия","Как распределяется энергия по дню?","o",["Утром пик, к вечеру спад - норм","Долго раскачиваюсь, живу к вечеру","Провал после обеда","Ровно, но всё время на низком заряде","Скачет непредсказуемо"]],
-  ["Энергия","Кофе, чай, энергетики?","o",["Не пью или почти не пью","1-2 чашки, до обеда","3-4 чашки, бывает и вечером","5+ чашек или энергетики"]],
-  ["Энергия","Бывает «туман в голове»?","o",["Почти не бывает","После обеда","С самого утра","К вечеру","Почти постоянно"]],
+  ["Энергия","Сколько кофе или энергетиков в день?","o",["Не пью или почти не пью","1-2 чашки, до обеда","3-4 чашки, бывает и вечером","5+ чашек или энергетики"]],
   ["Питание","Сколько полноценных приёмов пищи в день?","o",["3 + перекусы, по режиму","2-3, более-менее стабильно","1-2, часто на бегу","Хаотично, как получится"]],
-  ["Тело","Физическая активность сейчас?","o",["3+ раза в неделю","1-2 раза в неделю","Редко, от случая к случаю","Сейчас нет совсем"]],
+  ["Тело","Как часто вы двигаетесь?","o",["3+ раза в неделю","1-2 раза в неделю","Редко, от случая к случаю","Сейчас нет совсем"]],
   ["Работа","Ваш реальный график?","o",["Стандартный, до 18-19","До 20 и позже","Ненормированный, плавающий","Своё дело - границ нет"]],
   ["Работа","Рабочие чаты вечером и в выходные?","o",["Нет, отключаюсь","Поглядываю иногда","Постоянно на связи","Работаю и по выходным"]],
   ["Работа","Уровень стресса за последний месяц?","s",["1 - штиль","10 - шторм"]],
@@ -687,15 +685,15 @@ function buildRecs(){
   const inc = (i,v) => Array.isArray(a[i]) ? a[i].includes(v) : a[i]===v;
   const num = i => parseInt(a[i], 10);
   const recs = [];
-  if(inc(1,'После часа ночи')||inc(1,'Каждый день по-разному')||inc(3,'Телефон, соцсети')||inc(3,'Работа, рабочие чаты')||num(4) <= 4)
+  if(inc(1,'После часа ночи')||inc(1,'Каждый день по-разному')||inc(3,'Телефон, соцсети')||inc(3,'Работа, рабочие чаты'))
     recs.push('Начните со сна: фиксированное время подъёма и час без экрана перед сном - первые результаты появятся уже за неделю.');
-  if(inc(6,'3-4 чашки, бывает и вечером')||inc(6,'5+ чашек или энергетики')||inc(2,'Часто - крутятся мысли')||inc(2,'Просыпаюсь под утро и уже не сплю'))
+  if(inc(5,'3-4 чашки, бывает и вечером')||inc(5,'5+ чашек или энергетики')||inc(2,'Часто - крутятся мысли')||inc(2,'Просыпаюсь под утро и уже не сплю')||inc(4,'Провал после обеда'))
     recs.push('Сдвиньте кофеин: последняя чашка до 14:00 - вернутся глубокие фазы сна, и утро станет заметно легче.');
-  if(inc(11,'Постоянно на связи')||inc(11,'Работаю и по выходным')||inc(13,'Больше года назад')||inc(13,'Не помню / отпуск всегда с ноутбуком')||inc(14,'Честно - ничего не помогает')||num(12) >= 8)
+  if(inc(9,'Постоянно на связи')||inc(9,'Работаю и по выходным')||inc(11,'Больше года назад')||inc(11,'Не помню / отпуск всегда с ноутбуком')||inc(12,'Честно - ничего не помогает')||num(10) >= 8)
     recs.push('Верните восстановление: 2 часа в неделю полностью без телефона и задач - нервной системе нужно окно тишины.');
-  if(inc(8,'Хаотично, как получится')||inc(8,'1-2, часто на бегу'))
+  if(inc(6,'Хаотично, как получится')||inc(6,'1-2, часто на бегу'))
     recs.push('Стабилизируйте питание: два полноценных приёма пищи в предсказуемое время сгладят скачки энергии.');
-  if(inc(9,'Сейчас нет совсем')||inc(9,'Редко, от случая к случаю'))
+  if(inc(7,'Сейчас нет совсем')||inc(7,'Редко, от случая к случаю'))
     recs.push('Добавьте минимум движения: 20 минут ходьбы в день уже поднимают базовый уровень энергии.');
   if(recs.length===0) recs.push('Ваша система в целом устойчива - на аудите отполируем детали и соберём стратегию под ваши цели.');
   return recs.slice(0,3);
@@ -713,18 +711,6 @@ function finish(){
     list.appendChild(d);
   });
   $('summary').textContent = buildText();
-}
-
-function copyFull(){
-  const text = buildText();
-  const btn = document.getElementById('btn-copy2');
-  const okMsg = () => { btn.textContent = 'Скопировано ✓'; setTimeout(()=>btn.textContent='Скопировать полную версию текстом', 2500); };
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(text).then(okMsg).catch(function(){ showManual(text); });
-  } else {
-    showManual(text);
-  }
-  showManual(text);
 }
 
 function editAnswers(){
@@ -814,7 +800,6 @@ window.next = next;
 window.back = back;
 window.answerNoop = null;
 window.copyAll = copyAll;
-window.copyFull = copyFull;
 window.selectManual = selectManual;
 window.editAnswers = editAnswers;
 
