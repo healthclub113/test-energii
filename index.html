@@ -311,6 +311,12 @@ body{
     <a class="btn-tg" id="btn-max" href="" target="_blank">Отправить профиль в MAX</a>
     <button id="btn-copy2" onclick="copyFull()" style="display:block;width:100%;margin-top:10px;background:transparent;border:1px solid var(--line);border-radius:14px;color:var(--ink);font-size:14.5px;font-weight:600;padding:14px;cursor:pointer">Скопировать полную версию текстом</button>
     <p style="font-size:12.5px;color:var(--muted);text-align:center;margin-top:10px;line-height:1.5">Кнопка сама копирует текст: в чате нажмите на поле ввода → «Вставить» → отправьте. Telegram: <b>@jua_artemova</b></p>
+    <div id="manual-box" style="display:none;margin-top:18px;padding:16px;background:#FFF;border:1px solid var(--line);border-radius:16px">
+      <div style="font-size:13px;font-weight:700;color:var(--gold-deep);letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px">Если чат открылся пустым</div>
+      <p style="font-size:13.5px;color:var(--muted);line-height:1.5;margin:0 0 10px">Нажмите кнопку ниже, затем «Скопировать» - и вставьте текст в чат.</p>
+      <textarea id="manual-text" readonly style="width:100%;height:130px;font-family:inherit;font-size:13px;line-height:1.5;color:var(--ink);background:#FAF8F5;border:1px solid var(--line);border-radius:12px;padding:12px;resize:vertical;-webkit-user-select:text;user-select:text"></textarea>
+      <button id="manual-btn" onclick="selectManual()" style="display:block;width:100%;margin-top:10px;background:transparent;border:1px solid var(--line);border-radius:14px;color:var(--ink);font-size:14.5px;font-weight:600;padding:14px;cursor:pointer;font-family:inherit">Выделить весь текст</button>
+    </div>
     <button class="skipfix" onclick="editAnswers()" style="display:block;width:100%;margin-top:10px;background:transparent;border:none;color:var(--muted);font-size:14px;font-weight:500;padding:8px;cursor:pointer">← Изменить ответы</button>
     <p class="hint">До встречи на Health-аудите ✨</p>
   </div>
@@ -708,21 +714,12 @@ function copyFull(){
   const text = buildText();
   const btn = document.getElementById('btn-copy2');
   const okMsg = () => { btn.textContent = 'Скопировано ✓'; setTimeout(()=>btn.textContent='Скопировать полную версию текстом', 2500); };
-  const selectFallback = () => {
-    const node = document.getElementById('summary');
-    const range = document.createRange();
-    range.selectNodeContents(node);
-    const sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-    btn.textContent = 'Текст выделен - нажмите «Скопировать»';
-    setTimeout(()=>btn.textContent='Скопировать полную версию текстом', 4000);
-  };
   if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(text).then(okMsg).catch(selectFallback);
+    navigator.clipboard.writeText(text).then(okMsg).catch(function(){ showManual(text); });
   } else {
-    selectFallback();
+    showManual(text);
   }
+  showManual(text);
 }
 
 function editAnswers(){
@@ -753,9 +750,33 @@ function copyAll(){
   const btn = document.getElementById('btn-copy');
   btn.textContent = 'Профиль скопирован ✓';
   setTimeout(function(){ btn.textContent = 'Отправить профиль в Telegram'; }, 4000);
+  /* Часть браузеров (Яндекс, встроенные в соцсети) молча блокирует буфер.
+     Поэтому всегда показываем текст на странице - его можно выделить руками. */
+  showManual(full);
   /* Синхронное открытие в момент тапа - страница с ответами остаётся */
   const w = window.open(CONTACT_URL, '_blank');
   if(!w){ window.location.href = CONTACT_URL; } /* если браузер запретил вкладку */
+}
+
+function showManual(text){
+  const box = document.getElementById('manual-box');
+  const ta = document.getElementById('manual-text');
+  if(!box || !ta) return;
+  ta.value = text;
+  box.style.display = 'block';
+  box.scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+function selectManual(){
+  const ta = document.getElementById('manual-text');
+  ta.removeAttribute('readonly');
+  ta.focus();
+  ta.setSelectionRange(0, ta.value.length);
+  ta.setAttribute('readonly','');
+  try{ document.execCommand('copy'); }catch(e){}
+  const b = document.getElementById('manual-btn');
+  b.textContent = 'Текст выделен - нажмите «Скопировать» ↑';
+  setTimeout(function(){ b.textContent = 'Выделить весь текст'; }, 5000);
 }
 
 function fallbackCopy(text, done){
@@ -789,6 +810,7 @@ window.back = back;
 window.answerNoop = null;
 window.copyAll = copyAll;
 window.copyFull = copyFull;
+window.selectManual = selectManual;
 window.editAnswers = editAnswers;
 
 /* MAX: кнопка появляется, только если в настройках указана ссылка MAX_URL */
@@ -797,11 +819,13 @@ if(maxBtn){
   if(typeof MAX_URL !== 'undefined' && MAX_URL){
     maxBtn.href = MAX_URL;
     maxBtn.addEventListener('click', function(){
+      const full = buildText();
       try{
         if(navigator.clipboard && navigator.clipboard.writeText){
-          navigator.clipboard.writeText(buildText()).catch(function(){});
+          navigator.clipboard.writeText(full).catch(function(){});
         }
       }catch(e){}
+      showManual(full);
     });
   } else {
     maxBtn.style.display = 'none';
