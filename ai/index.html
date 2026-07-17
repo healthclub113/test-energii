@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Какой ИИ, для чего и сколько стоит · шпаргалка</title>
+<meta name="description" content="23 сервиса в одной таблице: задача, чем делать, сколько стоит, в чём подвох.">
+<meta property="og:title" content="Какой ИИ, для чего и сколько стоит">
+<meta property="og:description" content="Разобрала 23 сервиса. Каждый день нужны три, это ≈$25 в месяц.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Golos+Text:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<script type="text/javascript">
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  ym(110504158, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110504158" style="position:absolute;left:-9999px" alt=""></div></noscript>
+<style>
+  :root{
+    --ink:#0E1B17;
+    --pine:#122B23;
+    --cream:#F2EFE6;
+    --card:#FDFCF8;
+    --gold:#D9A441;
+    --gold-soft:#E8C98A;
+    --gold-deep:#A87C24;
+    --green:#5FA872;
+    --ink-soft:#3E4A44;
+    --muted:#7D857C;
+    --hair:rgba(14,27,23,.10);
+    --radius:28px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  body{
+    font-family:'Golos Text',system-ui,-apple-system,sans-serif;
+    background:var(--cream);
+    background-image:radial-gradient(120% 70% at 50% 0%, #FAF8F1 0%, #F2EFE6 60%);
+    background-attachment:fixed;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+    padding:22px 14px 64px;
+  }
+
+  .wrap{max-width:760px;margin:0 auto}
+
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:36px 28px;
+    margin-bottom:20px;
+    box-shadow:0 2px 28px rgba(14,27,23,.05);
+  }
+
+  .bare{padding:16px 28px 34px;margin-bottom:20px}
+
+  .eyebrow{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:18px;
+  }
+  .eyebrow-gold{color:var(--gold-deep)}
+
+  h1{
+    font-family:'Unbounded',sans-serif;
+    font-size:clamp(27px,6.2vw,40px);
+    font-weight:800;
+    letter-spacing:-.03em;
+    line-height:1.12;
+    margin-bottom:20px;
+  }
+
+  h2{
+    font-family:'Unbounded',sans-serif;
+    font-size:clamp(21px,4.8vw,29px);
+    font-weight:800;
+    letter-spacing:-.03em;
+    line-height:1.16;
+    margin-bottom:10px;
+  }
+
+  .lede{font-size:16px;color:var(--ink-soft);line-height:1.6;max-width:56ch}
+
+  .byline{
+    font-size:13.5px;
+    color:var(--muted);
+    margin-top:22px;
+    padding-top:20px;
+    border-top:1px solid var(--hair);
+    line-height:1.55;
+  }
+  .byline b{color:var(--ink);font-weight:600}
+
+  .gauge-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:10px}
+  .gauge-head .eyebrow{margin-bottom:0}
+  .gauge-val{font-size:13px;font-weight:700;color:var(--ink);white-space:nowrap}
+  .gauge{height:10px;border-radius:99px;background:rgba(14,27,23,.09);overflow:hidden}
+  .gauge span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--gold),var(--gold-soft))}
+  .gauge-block{margin:32px 0 22px;padding-top:26px;border-top:1px solid var(--hair)}
+
+  .inset{border-left:2px solid var(--gold);padding:2px 0 2px 18px;margin:26px 0 0}
+  .inset .eyebrow{margin-bottom:10px}
+  .inset p{font-size:15px;color:var(--ink-soft);line-height:1.6}
+
+  nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+  nav a{
+    font-size:13.5px;font-weight:600;color:var(--ink);text-decoration:none;
+    padding:9px 15px;border:1px solid var(--hair);border-radius:99px;
+    transition:border-color .15s,color .15s,background .15s;
+  }
+  nav a:hover,nav a:focus-visible{border-color:var(--gold);color:var(--gold-deep);background:rgba(217,164,65,.06)}
+
+  .cat{
+    font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--muted);margin:36px 0 0;padding-bottom:11px;border-bottom:2px solid var(--ink);
+  }
+  .cat:first-of-type{margin-top:26px}
+
+  .row{padding:16px 0;border-bottom:1px solid var(--hair)}
+  .row-top{display:flex;align-items:baseline;gap:6px}
+  .row-name{font-size:16px;font-weight:600;letter-spacing:-.01em}
+  .leader{flex:1;border-bottom:1.5px dotted rgba(14,27,23,.2);transform:translateY(-4px);min-width:12px}
+  .row-price{font-size:13.5px;font-weight:700;color:var(--gold-deep);white-space:nowrap}
+  .free{color:var(--green)}
+  .row-sub{font-size:14px;color:var(--muted);margin-top:5px;line-height:1.5}
+  .row-sub b{color:var(--ink-soft);font-weight:600}
+
+  .kit .row-name{font-family:'Unbounded',sans-serif;font-size:17px;font-weight:600;letter-spacing:-.02em}
+  .total{display:flex;align-items:baseline;gap:6px;padding-top:24px}
+  .total-label{font-family:'Unbounded',sans-serif;font-size:17px;font-weight:800;letter-spacing:-.02em}
+  .total-val{font-family:'Unbounded',sans-serif;font-size:17px;font-weight:800;color:var(--gold-deep);white-space:nowrap;letter-spacing:-.02em}
+
+  .pull{font-size:clamp(17px,3.4vw,20px);line-height:1.55;color:var(--ink-soft);max-width:60ch}
+  .pull b{color:var(--gold-deep);font-weight:700}
+  .pull-note{font-size:14.5px;color:var(--muted);line-height:1.6;margin-top:14px;max-width:60ch}
+  .risk{margin-bottom:18px;font-size:15.5px;color:var(--ink-soft);line-height:1.6;max-width:62ch}
+  .risk b{color:var(--gold-deep);font-weight:700}
+
+  .callout{margin-top:34px;padding-top:26px;border-top:1px solid var(--hair)}
+  .callout h3{font-family:'Unbounded',sans-serif;font-size:15px;font-weight:600;letter-spacing:-.02em;margin-bottom:11px}
+  .callout p{font-size:15px;color:var(--ink-soft);line-height:1.65;max-width:62ch}
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:13px;font-weight:600;background:rgba(14,27,23,.05);
+    padding:3px 7px;border-radius:5px;white-space:nowrap;
+  }
+
+  .stop{
+    display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--hair);
+    font-size:15.5px;color:var(--muted);line-height:1.55;
+  }
+  .stop:last-child{border-bottom:none}
+  .stop-x{color:var(--gold);font-weight:700;flex-shrink:0;line-height:1.45}
+  .stop b{color:var(--ink);font-weight:700}
+
+  .rule{padding:22px 0;border-bottom:1px solid var(--hair)}
+  .rule:last-of-type{border-bottom:none}
+  .rule-num{font-size:11px;font-weight:800;color:var(--gold);letter-spacing:.12em;margin-bottom:9px}
+  .rule h3{font-family:'Unbounded',sans-serif;font-size:16px;font-weight:600;letter-spacing:-.02em;margin-bottom:7px}
+  .rule p{font-size:15px;color:var(--muted);line-height:1.6;max-width:60ch}
+
+  .final{background:var(--pine);box-shadow:0 2px 34px rgba(14,27,23,.16)}
+  .final .eyebrow{color:rgba(242,239,230,.42)}
+  .final h2{color:var(--cream)}
+  .final .lede{color:rgba(242,239,230,.58)}
+  .final .punch{
+    font-size:clamp(18px,3.6vw,21px);font-weight:600;line-height:1.5;
+    margin-top:18px;max-width:52ch;color:var(--cream);
+  }
+  .final .punch b{color:var(--gold-soft);font-weight:700}
+  .final .gauge-block{border-top:1px solid rgba(242,239,230,.14);margin:36px 0 24px}
+  .final .gauge{background:rgba(242,239,230,.12)}
+  .final .gauge-val{color:var(--gold-soft)}
+
+  .cta{
+    display:block;
+    background:linear-gradient(180deg,#DFB55D 0%,#B8862C 100%);
+    color:var(--ink);text-align:center;text-decoration:none;
+    font-family:'Unbounded',sans-serif;
+    font-size:16px;font-weight:600;letter-spacing:-.02em;
+    padding:20px;border-radius:16px;
+    box-shadow:0 0 0 1px rgba(232,201,138,.28), 0 8px 30px rgba(217,164,65,.22);
+    transition:transform .12s,filter .18s;
+  }
+  .cta:hover{filter:brightness(1.06)}
+  .cta:active{transform:scale(.985)}
+  .cta-sub{text-align:center;font-size:13px;color:rgba(242,239,230,.45);margin-top:13px}
+
+  footer{padding:8px 28px 0;max-width:760px;margin:0 auto}
+  footer p{font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:12px;max-width:64ch}
+  footer b{color:var(--ink-soft);font-weight:600}
+  .sig{font-size:13.5px;color:var(--muted);margin-top:22px}
+
+  a:focus-visible,.cta:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  [id]{scroll-margin-top:16px}
+
+  @media (max-width:520px){
+    .card{padding:28px 20px}
+    .bare{padding:14px 20px 26px}
+    footer{padding:8px 20px 0}
+    .row-top{flex-wrap:wrap}
+    .leader{display:none}
+    .row-price{margin-left:auto}
+  }
+
+  @media (prefers-reduced-motion:reduce){*{transition:none !important}}
+
+  @media print{
+    body{background:#FFF;padding:0}
+    .card{break-inside:avoid;border:1px solid var(--hair);box-shadow:none;margin-bottom:12px}
+    nav,.cta{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="card">
+    <div class="eyebrow">Шпаргалка · июль 2026</div>
+    <h1>Какой ИИ, для чего и сколько стоит</h1>
+    <p class="lede">Открыли десять вкладок и не поняли, за что платить? Я неделю в этом разбиралась и собрала всё в одну таблицу: задача, чем делать, сколько стоит, в чём подвох.</p>
+
+    <div class="gauge-block">
+      <div class="gauge-head">
+        <div class="eyebrow">Реально нужно</div>
+        <div class="gauge-val">3 из 23</div>
+      </div>
+      <div class="gauge"><span style="width:13%"></span></div>
+    </div>
+
+    <p class="lede">Разобрала 23 сервиса. Каждый день нужны три, это ≈$25 в месяц. Остальные покупают «на всякий случай» и открывают раз в месяц.</p>
+
+    <div class="inset">
+      <div class="eyebrow">Как пользоваться</div>
+      <p>Подряд читать не надо. Спешите? Возьмите стартовый набор и закройте. Есть конкретная задача? Найдите её в списке. Всё остальное покупается потом и по факту.</p>
+    </div>
+
+    <nav>
+      <a href="#start">Старт</a>
+      <a href="#chto">Что чем</a>
+      <a href="#biznes">Бизнес</a>
+      <a href="#bezvpn">Без VPN</a>
+      <a href="#stop">Не покупать</a>
+      <a href="#pravila">Правила</a>
+    </nav>
+
+    <p class="byline"><b>Юлия Артемова</b>, health-коуч. Собирала эту таблицу для себя, когда надоело платить непонятно за что.</p>
+  </div>
+
+  <div class="bare">
+    <div class="eyebrow eyebrow-gold">Главная ловушка</div>
+    <p class="pull"><b>Половина людей платит дважды за одно и то же.</b> Просто потому что у одного сервиса три разных названия, и на витрине они выглядят как три продукта.</p>
+    <p class="pull-note">Самый частый пример: Gemini, Nano Banana и Flow. Это не три сервиса, а одна подписка Google. Nano Banana рисует картинки внутри Gemini, Flow это видеостудия. Отдельно Nano Banana не продаётся вообще.</p>
+  </div>
+
+  <div class="card kit" id="start">
+    <div class="eyebrow">Шаг 1</div>
+    <h2>Стартовый набор</h2>
+    <p class="lede">Хватит 90% людей. Остальное потом и по факту.</p>
+
+    <div class="row" style="margin-top:24px">
+      <div class="row-top"><span class="row-name">Claude</span><span class="leader"></span><span class="row-price">$20 · $17 за год</span></div>
+      <div class="row-sub">Думать, писать, разбирать сложное. Есть free.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Google AI Plus</span><span class="leader"></span><span class="row-price">≈$5–8</span></div>
+      <div class="row-sub">Картинки, немного видео, Gemini, NotebookLM. Всё одной оплатой.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">DeepSeek</span><span class="leader"></span><span class="row-price free">бесплатно</span></div>
+      <div class="row-sub">Запасной, когда кончились лимиты. Без VPN.</div>
+    </div>
+
+    <div class="total">
+      <span class="total-label">Итого</span>
+      <span class="leader"></span>
+      <span class="total-val">≈ $25–28 / мес</span>
+    </div>
+  </div>
+
+  <div class="card" id="chto">
+    <div class="eyebrow">Справочник</div>
+    <h2>Что чем делать</h2>
+    <p class="lede">Задача, цена, подвох. Почти везде есть free-тариф, начинайте с него.</p>
+
+    <div class="cat">Текст</div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Стратегия, разборы, длинные тексты</span><span class="leader"></span><span class="row-price">$20/мес</span></div>
+      <div class="row-sub"><b>Claude</b> · Основной. Узкое место: лимиты.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Подстраховка, когда лимиты кончились</span><span class="leader"></span><span class="row-price free">бесплатно</span></div>
+      <div class="row-sub"><b>DeepSeek</b> · Без VPN. На сложном заметно слабее.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Универсальный дублёр</span><span class="leader"></span><span class="row-price">$20/мес</span></div>
+      <div class="row-sub"><b>ChatGPT Plus</b> · Дублирует Claude и Gemini. Берите один.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Поиск с проверяемыми ссылками</span><span class="leader"></span><span class="row-price free">free хватает</span></div>
+      <div class="row-sub"><b>Perplexity</b> · Когда нужны источники, а не пересказ.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Документы, конспекты, аудио-обзор</span><span class="leader"></span><span class="row-price free">бесплатно</span></div>
+      <div class="row-sub"><b>NotebookLM</b> · Отвечает только по вашим файлам. Не выдумывает.</div>
+    </div>
+
+    <div class="cat">Картинки</div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Обложки, визуал постов</span><span class="leader"></span><span class="row-price free">20 в день free</span></div>
+      <div class="row-sub"><b>Nano Banana</b> · Внутри Gemini. Бесплатного хватает почти всем.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">4K и текст на картинке</span><span class="leader"></span><span class="row-price">от $5/мес</span></div>
+      <div class="row-sub"><b>Nano Banana Pro</b> · Только подпиской Google, отдельно нет.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Художественный «вау»-визуал</span><span class="leader"></span><span class="row-price">от $10/мес</span></div>
+      <div class="row-sub"><b>Midjourney</b> · Free нет с 2023. $10 = ≈200 картинок и всё.</div>
+    </div>
+
+    <div class="cat">Видео и аватары</div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Кино-ролики, атмосфера, мультик</span><span class="leader"></span><span class="row-price">$20/мес</span></div>
+      <div class="row-sub"><b>Flow · Veo</b> · Кредиты, не безлимит. На free выйдет пара клипов в неделю.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Конкуренты Flow</span><span class="leader"></span><span class="row-price">≈$10–30/мес</span></div>
+      <div class="row-sub"><b>Sora · Kling · Runway</b> · Одна задача, разные способы. Берите один.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Аватар, говорящая голова</span><span class="leader"></span><span class="row-price">от $29/мес</span></div>
+      <div class="row-sub"><b>HeyGen</b> · Это НЕ Flow. 3 free видео с вотермаркой.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Оживить одно фото</span><span class="leader"></span><span class="row-price">от $6/мес</span></div>
+      <div class="row-sub"><b>Hedra · D-ID</b> · Дешевле и живее для соцсетей.</div>
+    </div>
+
+    <div class="cat">Звук</div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Озвучка, клон голоса</span><span class="leader"></span><span class="row-price">free → от $5</span></div>
+      <div class="row-sub"><b>ElevenLabs</b> · Русский звучит хорошо, а это редкость.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Музыка, джинглы</span><span class="leader"></span><span class="row-price">free → ≈$10</span></div>
+      <div class="row-sub"><b>Suno</b> · На free коммерческих прав обычно нет.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Расшифровать созвон, интервью</span><span class="leader"></span><span class="row-price free">free → ≈1500₽</span></div>
+      <div class="row-sub"><b>MyMeet · Teamlogs</b> · MyMeet сам заходит в Zoom, Meet и Телемост.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Расшифровка в протокол</span><span class="leader"></span><span class="row-price free">бесплатно</span></div>
+      <div class="row-sub"><b>Любой чат-ИИ</b> · Кидаете текст и просите протокол. Сервис не нужен.</div>
+    </div>
+
+    <div class="cat">Рабочее</div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Презентация из текста в клик</span><span class="leader"></span><span class="row-price">free → $10/мес</span></div>
+      <div class="row-sub"><b>Gamma</b> · 400 кредитов дают ОДИН раз, не в месяц. И плашка на всём.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Слайды, дизайн</span><span class="leader"></span><span class="row-price">входит в Google</span></div>
+      <div class="row-sub"><b>Gemini в Slides · Canva</b> · Canva отдельно ≈$12/мес.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Телеграм-бот, воронка, квиз</span><span class="leader"></span><span class="row-price">0 – 1500₽/мес</span></div>
+      <div class="row-sub"><b>Конструктор + ИИ</b> · ИИ пишет реплики, бота хостит конструктор. Это разные вещи.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Потрогать всё сразу, разово</span><span class="leader"></span><span class="row-price">по факту</span></div>
+      <div class="row-sub"><b>Боты-агрегаторы</b> · Посредник видит всё. Клиентские данные туда не отправляйте.</div>
+    </div>
+
+    <div class="callout">
+      <h3>Связка для цифрового аватара</h3>
+      <p><code>картинка</code> → <code>HeyGen</code> → <code>ElevenLabs</code>. Кнопки «сделай аватара» не существует. Это три сервиса и три счёта.</p>
+    </div>
+  </div>
+
+  <div class="card" id="biznes">
+    <div class="eyebrow">Для предпринимателей</div>
+    <h2>Если у вас бизнес</h2>
+    <p class="lede">Не «что умеет ИИ», а что влияет на выручку. Порядок по отдаче.</p>
+
+    <div class="cat">Влияет на деньги</div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Разбор продающих созвонов</span><span class="leader"></span><span class="row-price free">free → ≈1500₽</span></div>
+      <div class="row-sub"><b>Транскрибация + чат-ИИ</b> · 10 звонков, и вы знаете, на каком возражении теряете людей. Лучшее в списке, и почти никто так не делает.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Быстрый ответ на заявку</span><span class="leader"></span><span class="row-price">0 – 2000₽/мес</span></div>
+      <div class="row-sub"><b>Конструктор ботов</b> · Скорость ответа важнее красоты текста.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">КП и презентация клиенту</span><span class="leader"></span><span class="row-price">free → $10/мес</span></div>
+      <div class="row-sub"><b>Gamma</b> · Час вместо дня. Для клиентов нужен платный, иначе чужая плашка.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Что на самом деле думают клиенты</span><span class="leader"></span><span class="row-price free">бесплатно</span></div>
+      <div class="row-sub"><b>NotebookLM</b> · Кидаете 200 отзывов и видите, на что жалуются чаще всего.</div>
+    </div>
+
+    <div class="cat">Экономит часы</div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Посты, рассылки, описания</span><span class="leader"></span><span class="row-price">входит в подписку</span></div>
+      <div class="row-sub"><b>Чат-ИИ</b> · Даёт объём и регулярность, а не гениальность.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Таблицы, расчёты, финмодель</span><span class="leader"></span><span class="row-price">входит в подписку</span></div>
+      <div class="row-sub"><b>Чат-ИИ + Sheets</b> · Проверяйте цифры: ИИ ошибается уверенным тоном.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Договоры, оферты</span><span class="leader"></span><span class="row-price">входит в подписку</span></div>
+      <div class="row-sub"><b>Чат-ИИ</b> · Разобрать поможет. Заменить юриста нет.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Вакансии, скрининг резюме</span><span class="leader"></span><span class="row-price">входит в подписку</span></div>
+      <div class="row-sub"><b>Чат-ИИ</b> · Обезличивайте: без ФИО, телефонов, адресов.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Связать сервисы между собой</span><span class="leader"></span><span class="row-price">free → ≈$20/мес</span></div>
+      <div class="row-sub"><b>Make · n8n</b> · Только когда процесс устоялся вручную.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Сайт, лендинг</span><span class="leader"></span><span class="row-price">от 0</span></div>
+      <div class="row-sub"><b>Tilda с ИИ · Gamma</b> · Gamma публикует презентацию как страницу.</div>
+    </div>
+
+    <div class="callout">
+      <h3>Чего ИИ не чинит</h3>
+      <p>Нет продаж? Это почти никогда не про нехватку контента. Обычно про непонятный оффер или про то, что с людьми мало разговаривают. ИИ тут бесполезен. Он делает быстрее то, что вы уже делаете. Хорошее и плохое одинаково.</p>
+    </div>
+  </div>
+
+  <div class="bare">
+    <div class="eyebrow eyebrow-gold">Три риска, о которых не пишут</div>
+    <p class="risk"><b>1. Персональные данные.</b> Клиентские базы, анкеты, медсведения не отправляйте в западные сервисы и тем более в боты-посредники. Это 152-ФЗ. А посредник ещё и видит всё, что вы туда кидаете.</p>
+    <p class="risk"><b>2. ИИ врёт уверенно.</b> В цифрах, законах, датах, ссылках. Всё, что уходит клиенту, проверяет человек.</p>
+    <p class="risk"><b>3. Подписки размножаются.</b> Пять сервисов на троих, $300 в месяц, и никто не помнит зачем. Один инструмент на один процесс.</p>
+  </div>
+
+  <div class="card" id="bezvpn">
+    <div class="eyebrow">Альтернатива</div>
+    <h2>Без VPN и плясок с оплатой</h2>
+    <p class="lede">Слабее западных, но платятся обычной картой и не отвалятся.</p>
+
+    <div class="cat">Российские</div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Чат, тексты, картинки</span><span class="leader"></span><span class="row-price free">free · Про 100₽</span></div>
+      <div class="row-sub"><b>Алиса · YandexGPT</b> · Продвинутая модель уже бесплатна. Про стоит 100₽ поверх Плюса за 449₽, считайте сумму.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">То же, но от Сбера</span><span class="leader"></span><span class="row-price free">бесплатно</span></div>
+      <div class="row-sub"><b>GigaChat</b> · В боте бесплатно, есть поиск и режим исследования.</div>
+    </div>
+    <div class="row">
+      <div class="row-top"><span class="row-name">Картинки</span><span class="leader"></span><span class="row-price free">бесплатно</span></div>
+      <div class="row-sub"><b>Шедеврум</b> · Хуже Nano Banana, зато ноль препятствий.</div>
+    </div>
+
+    <div class="callout">
+      <h3>Честно про них</h3>
+      <p>На сложном разрыв заметный. Разобрать длинный документ, продумать стратегию: тут они проседают. Но «переписать пост» и «картинку в ленту» закрывают так же, а мороки в десять раз меньше.</p>
+    </div>
+  </div>
+
+  <div class="card" id="stop">
+    <div class="eyebrow">Стоп-лист</div>
+    <h2>Пока не покупайте</h2>
+
+    <div style="margin-top:24px">
+      <div class="stop"><span class="stop-x">✕</span><span><b>HeyGen, ElevenLabs, Suno.</b> Пока нет ролика, который вы уже пообещали выпустить. Иначе $60 в месяц за то, что открываете раз в месяц.</span></div>
+      <div class="stop"><span class="stop-x">✕</span><span><b>Midjourney.</b> Пока бесплатная Nano Banana закрывает задачу.</span></div>
+      <div class="stop"><span class="stop-x">✕</span><span><b>Два видеогенератора сразу.</b> Разницу почувствует только тот, кто снимает каждый день.</span></div>
+      <div class="stop"><span class="stop-x">✕</span><span><b>Google AI Ultra ($100+).</b> Это для студий с потоком видео.</span></div>
+      <div class="stop"><span class="stop-x">✕</span><span><b>Вторую и третью «болталку».</b> Claude, ChatGPT и Gemini делают одно.</span></div>
+      <div class="stop"><span class="stop-x">✕</span><span><b>Годовые тарифы у посредников.</b> Сервис отвалится раньше, чем кончится год.</span></div>
+    </div>
+  </div>
+
+  <div class="card" id="pravila">
+    <div class="eyebrow">Итог</div>
+    <h2>Три правила новичку</h2>
+
+    <div style="margin-top:16px">
+      <div class="rule">
+        <div class="rule-num">01</div>
+        <h3>Сначала бесплатно</h3>
+        <p>Месяца на free хватит, чтобы понять, нужно ли это вообще.</p>
+      </div>
+      <div class="rule">
+        <div class="rule-num">02</div>
+        <h3>Одна подписка за раз</h3>
+        <p>Платите за то, что открываете каждый день. Не за то, что «пригодится».</p>
+      </div>
+      <div class="rule">
+        <div class="rule-num">03</div>
+        <h3>Инструмент не заменит решение</h3>
+        <p>Красивая картинка не приведёт клиента. Приведёт понятный оффер и разговор с живым человеком. ИИ даёт скорость, а не стратегию.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card final">
+    <div class="eyebrow">И последнее</div>
+    <h2>С вами это работает так же</h2>
+    <p class="lede">Подписок на $300. Кольцо считает сон. Полка добавок. Абонемент, куда вы были два раза в марте.</p>
+    <p class="punch">Инструментов на пятьдесят тысяч. Решения ноль. <b>Вы автоматизировали всё, кроме себя.</b></p>
+
+    <div class="gauge-block">
+      <div class="gauge-head">
+        <div class="eyebrow">Ваш заряд</div>
+        <div class="gauge-val">?</div>
+      </div>
+      <div class="gauge"><span style="width:0"></span></div>
+    </div>
+
+    <a class="cta" href="https://healthclub113.github.io/test-energii/"
+       onclick="if(window.ym)ym(110504158,'reachGoal','ai_cta_click')">Пройти тест на выгорание</a>
+    <p class="cta-sub">8 вопросов · 2 минуты · бесплатно</p>
+  </div>
+
+</div>
+
+<footer>
+  <p><b>Оплата из России:</b> кроме DeepSeek и российских, везде нужна карта другой страны или посредник. Нормальный посредник называет комиссию до перевода.</p>
+  <p><b>Цены:</b> примерные, середина июля 2026, для США. Тарифы меняются быстро, проверьте перед оплатой.</p>
+  <p class="sig">Юлия Артемова · Health-коуч · HEALTH CLUB 113</p>
+</footer>
+
+</body>
+</html>
