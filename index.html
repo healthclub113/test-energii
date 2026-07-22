@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Тест: насколько вы близки к выгоранию?</title>
+<title>На что уходит ваша энергия?</title>
 <meta name="description" content="8 вопросов · 2 минуты. Узнай свою зону энергии, слабые места и первые шаги.">
 <meta property="og:title" content="На что уходит ваша энергия?">
 <meta property="og:description" content="Мини-тест на 2 минуты: ваша зона энергии, слабые места и что с этим делать.">
@@ -228,7 +228,7 @@ body{
   <!-- ЭКРАН 1: старт -->
   <div id="screen-start">
     <div class="eyebrow">Тест · 2 минуты</div>
-    <h1>Насколько вы близки к&nbsp;выгоранию?</h1>
+    <h1>На что уходит ваша&nbsp;энергия?</h1>
     <p class="sub">8 коротких вопросов про сон, энергию и фокус. Отвечайте честно - в конце покажу, в какой вы зоне, какие у вас слабые места и что с этим делать.</p>
     <div class="battery-wrap">
       <div class="battery-label"><span>Ваш заряд</span><span>100%</span></div>
@@ -269,6 +269,10 @@ body{
       <div id="razbor-text" style="font-size:14.5px;line-height:1.55;color:#454C53;padding-bottom:8px"></div>
     </div>
 
+    <div style="background:#F8F5EF;border:1px solid rgba(217,164,65,.3);border-radius:16px;padding:16px;margin-bottom:14px">
+      <p style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin:0 0 8px">Это только симптомы</p>
+      <p style="font-size:14.5px;color:var(--ink);line-height:1.55;margin:0">Тест показал, что происходит. Но не показал почему: у двух людей одна зона, а причины разные. Health-профиль за 3 минуты вскроет причину именно вашего состояния.</p>
+    </div>
     <a id="oprosnik-link" href="#profil" style="text-decoration:none">
       <button class="btn-cta" onclick="if(typeof ym==='function'&&METRIKA_ID)ym(METRIKA_ID,'reachGoal','oprosnik_click');showApp(true)">Составить Health-профиль → 3 мин</button>
     </a>
@@ -352,7 +356,7 @@ body{
 const CONTACT_URL = "https://t.me/jua_artemova";
 /* Ссылка на твой профиль в MAX: приложение MAX → аватар → значок QR-кода → «Поделиться» / «Скопировать ссылку».
    Получится вид https://max.ru/u/... - вставь её между кавычками ниже, и кнопка «Отправить профиль в MAX» появится сама. */
-const MAX_URL = "https://max.ru/u/f9LHodD0cOKbAIkKTTxYzuJH5l61bYhviD9Li7883JQmQv07UaCWskfu72c";
+const MAX_URL = "https://max.ru/u/f9LHodD0cOJcxNSB0UMmR3HFqo-0mWo_VwrPAbYcdqGk_O28jWRDzNs-Tbw";
 /* Ссылка на опросник перед аудитом - замени, если имя сайта другое */
 const OPROSNIK_URL = "#profil";
 
@@ -475,7 +479,7 @@ function showResult(){
   } else if(has(2) && has(0)){
     razbor = "Стимуляторы днём + разбитое утро - организм берёт энергию в долг, а ночью не успевает его вернуть. Первый шаг: последний кофеин - до 14:00, неделю. Утро отблагодарит.";
   } else if(yesCount > 0){
-    razbor = "У каждого набора «да» своя механика - двух одинаковых выгораний не бывает. Полная картина собирается в Health-профиле: по нему видно, что именно вас истощает.";
+    razbor = "У каждого набора «да» своя механика - двух одинаковых историй не бывает. Полная картина собирается в Health-профиле: по нему видно, что именно вас истощает.";
   }
   if(razbor){
     $('razbor-block').classList.remove('hidden');
@@ -761,8 +765,10 @@ function copyAll(){
      Поэтому всегда показываем текст на странице - его можно выделить руками. */
   showManual(full);
   /* Синхронное открытие в момент тапа - страница с ответами остаётся */
-  const w = window.open(CONTACT_URL, '_blank');
-  if(!w){ window.location.href = CONTACT_URL; } /* если браузер запретил вкладку */
+  var ping = 'Юлия, вот мой Health-профиль. Полный текст вставлю следующим сообщением.';
+  var tgUrl = CONTACT_URL + '?text=' + encodeURIComponent(ping);
+  const w = window.open(tgUrl, '_blank');
+  if(!w){ window.location.href = tgUrl; } /* если браузер запретил вкладку */
 }
 
 function showManual(text){
