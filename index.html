@@ -147,11 +147,12 @@ body{
   }
 #app-quiz .hidden{display:none}
 #app-quiz .btn-start, #app-quiz .btn-cta, #app-quiz .btn-yes{background:linear-gradient(175deg,#E3C98F 0%,#C6A25B 50%,#A98338 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 8px 20px rgba(180,143,66,.4)}
+#app-quiz .btn-start, #app-quiz .btn-cta, #app-quiz .btn-yes{color:#2E2617 !important}
 #app-quiz .btn-start:hover, #app-quiz .btn-cta:hover, #app-quiz .btn-yes:hover{background:linear-gradient(175deg,#EDD6A0 0%,#D2AF69 50%,#B58E42 100%)}
 @media (prefers-reduced-motion: reduce){
     *{transition:none !important}
   }
-#app-quiz .btn-start, #app-quiz .btn-cta, #app-quiz .btn-yes{color:#2E2617 !important}
+
 #app-oprosnik .card{
     margin:auto;
     width:100%;max-width:460px;background:var(--card);
@@ -208,11 +209,12 @@ body{
 #app-oprosnik .btn-tg{display:block;text-align:center;text-decoration:none;width:100%;margin-top:10px;background:#F0EBE3;color:var(--ink);border:1px solid var(--line);padding:16px;border-radius:14px;font-weight:600;font-size:16px}
 #app-oprosnik .hint{font-size:13px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.5}
 #app-oprosnik .btn-next, #app-oprosnik .btn-copy{background:linear-gradient(175deg,#E3C98F 0%,#C6A25B 50%,#A98338 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 8px 20px rgba(180,143,66,.4)}
+#app-oprosnik .btn-next, #app-oprosnik .btn-copy{color:#2E2617 !important}
 #app-oprosnik .btn-next:hover, #app-oprosnik .btn-copy:hover{background:linear-gradient(175deg,#EDD6A0 0%,#D2AF69 50%,#B58E42 100%)}
 #app-oprosnik .btn-next:disabled{background:#C9CBCD;box-shadow:none}
 #app-oprosnik .chip.sel{background:linear-gradient(175deg,#E3C98F,#B58E42);border-color:#B58E42}
 #app-oprosnik .hidden{display:none}
-#app-oprosnik .btn-next, #app-oprosnik .btn-copy{color:#2E2617 !important}
+
 #app-oprosnik .chip.sel{color:#2E2617 !important}
 #app-quiz, #app-oprosnik { width:100%; display:flex; }
 #app-quiz.hidden, #app-oprosnik.hidden { display:none; }
@@ -266,7 +268,9 @@ body{
 
     <div class="flags hidden" id="razbor-block">
       <div class="flags-title">Что происходит в вашей системе</div>
-      <div id="razbor-text" style="font-size:14.5px;line-height:1.55;color:#454C53;padding-bottom:8px"></div>
+      <div id="razbor-title" style="font-size:16.5px;font-weight:700;color:var(--ink);line-height:1.35;margin-bottom:8px"></div>
+      <div id="razbor-text" style="font-size:14.5px;line-height:1.6;color:#454C53;padding-bottom:4px"></div>
+      <div id="razbor-step" style="font-size:14.5px;line-height:1.6;color:var(--ink);padding-bottom:8px"></div>
     </div>
 
     <div style="background:#F8F5EF;border:1px solid rgba(217,164,65,.3);border-radius:16px;padding:16px;margin-bottom:14px">
@@ -274,10 +278,16 @@ body{
       <p style="font-size:14.5px;color:var(--ink);line-height:1.55;margin:0">Тест показал, что происходит. Но не показал почему: у двух людей одна зона, а причины разные. Health-профиль за 3 минуты вскроет причину именно вашего состояния.</p>
     </div>
     <a id="oprosnik-link" href="#profil" style="text-decoration:none">
-      <button class="btn-cta" onclick="if(typeof ym==='function'&&METRIKA_ID)ym(METRIKA_ID,'reachGoal','oprosnik_click');showApp(true)">Составить Health-профиль → 3 мин</button>
+      <button class="btn-cta" onclick="if(typeof ym==='function'&&METRIKA_ID)ym(METRIKA_ID,'reachGoal','oprosnik_click');showApp(true)">Составить Health-профиль</button>
     </a>
-    <p style="font-size:12.5px;color:var(--gold-deep);text-align:center;margin-top:12px;line-height:1.6;letter-spacing:.02em;font-weight:500">Три персональные рекомендации по вашим ответам</p>
-    <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:6px;line-height:1.5">Тест показал симптомы - профиль найдёт причины</p>
+    <p style="font-size:13.5px;color:var(--muted);text-align:center;margin-top:14px;line-height:1.6">3 минуты. В конце разбор по шести блокам и ваша главная утечка.</p>
+
+    <div style="margin-top:26px;padding-top:22px;border-top:1px solid rgba(20,22,19,.12)">
+      <a id="cta-link" href="#" target="_blank" onclick="trackCta()" style="display:block;text-decoration:none">
+        <button style="width:100%;background:#fff;border:1.5px solid #2D312D;border-radius:14px;padding:17px;font-family:inherit;font-size:15.5px;font-weight:700;color:var(--ink);cursor:pointer">Записаться на Health-аудит</button>
+      </a>
+      <p style="font-size:13px;color:var(--muted);text-align:center;margin-top:11px;line-height:1.55">60 минут. Разбираем причины и собираем порядок действий под ваш график.</p>
+    </div>
 
     <div id="photo-block" style="display:none;margin-top:22px;text-align:center">
       <img id="coach-photo" src="photo.jpeg" alt="Юлия Артемова" style="width:112px;height:112px;border-radius:50%;object-fit:cover;border:2px solid rgba(217,164,65,.35)">
@@ -285,7 +295,6 @@ body{
       <div style="font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.5">Health-коуч · 9 лет в корпоративном бизнесе</div>
     </div>
 
-    <a id="cta-link" href="#" target="_blank" onclick="trackCta()" style="display:block;text-align:center;margin-top:20px;font-size:13.5px;color:var(--gold-deep);font-weight:600;text-decoration:none;padding:8px">Уже готовы? Записаться на аудит →</a>
     <button class="btn-restart" onclick="restart()">Пройти ещё раз</button>
   </div>
 
@@ -322,16 +331,37 @@ body{
   <!-- Финал -->
   <div id="s-done" class="hidden">
     <div class="done-emoji">✨</div>
-    <h1>Ваш Health-профиль готов</h1>
-    <p class="sub">Вот что видно по вашим ответам уже сейчас. Рекомендации остаются у вас - можно начать применять сегодня.</p>
-    <div style="background:#F8F7F4;border:1px solid var(--line);border-radius:14px;padding:18px 16px;margin-bottom:26px" id="recs-block">
-      <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:10px">Ваши первые шаги</div>
-      <div id="recs-list" style="font-size:14.5px;line-height:1.55;color:#454C53"></div>
+    <h1>Ваш Health-профиль</h1>
+    <p class="sub" id="profile-goal"></p>
+
+    <div style="background:#FBF8F1;border:1px solid rgba(217,164,65,.35);border-radius:16px;padding:20px 18px;margin-bottom:22px">
+      <div style="font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:10px">Главная утечка</div>
+      <div id="leak-title" style="font-size:17px;font-weight:700;color:var(--ink);line-height:1.35;margin-bottom:10px"></div>
+      <p id="leak-text" style="font-size:14.5px;line-height:1.6;color:#454C53;margin:0"></p>
+    </div>
+
+    <div style="margin-bottom:24px">
+      <div style="font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px">Где вы сейчас, по шести блокам</div>
+      <div id="blocks-list"></div>
+    </div>
+
+    <div style="background:#F8F7F4;border:1px solid var(--line);border-radius:14px;padding:18px 16px;margin-bottom:22px" id="recs-block">
+      <div style="font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:10px">Что сделать уже сегодня</div>
+      <div id="recs-list" style="font-size:14.5px;line-height:1.6;color:#454C53"></div>
+    </div>
+
+    <div style="border:1px solid var(--line);border-radius:14px;padding:20px 18px;margin-bottom:26px">
+      <div style="font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:12px">Чего профиль не видит</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#454C53">
+        <p style="margin:0 0 12px"><b style="color:var(--ink)">Ваши цифры.</b> За утренней разбитостью чаще всего стоят ферритин, витамин D и общий белок. Пока их нет, любая рекомендация остаётся гипотезой. На аудите смотрим, что имеет смысл сдать именно вам, и с чем идти к врачу.</p>
+        <p style="margin:0 0 12px"><b style="color:var(--ink)">Связи между блоками.</b> Один и тот же провал после обеда бывает следствием сна, еды или нагрузки. Профиль видит, что просело. Что тянет за собой остальное, видно только в разборе.</p>
+        <p style="margin:0"><b style="color:var(--ink)">Порядок.</b> Чинить всё сразу нельзя, вы это бросите на третий день. Что первым, что вторым и чего не трогать вообще, это решение под ваш график, а не список советов.</p>
+      </div>
     </div>
 
     <div style="border-top:1px solid var(--line);padding-top:22px">
       <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:8px">Что дальше</div>
-      <p style="font-size:14.5px;line-height:1.55;color:#454C53;margin-bottom:16px">Отправьте профиль - я изучу его заранее. Свяжусь с вами в течение дня, чтобы подобрать время аудита.</p>
+      <p style="font-size:14.5px;line-height:1.6;color:#454C53;margin-bottom:16px">Отправьте профиль, я изучу его до созвона. На Health-аудите, 60 минут, разбираем ваши цифры и связи и собираем порядок действий под ваш график. Свяжусь в течение дня, чтобы подобрать время.</p>
     </div>
     <div class="summary" id="summary"></div>
     <button class="btn-copy" id="btn-copy" onclick="copyAll()">Отправить профиль в Telegram</button>
@@ -349,7 +379,7 @@ body{
 
 </div>
 </div>
-<div id="sticky-cta"><button onclick="if(typeof ym==='function'&&METRIKA_ID)ym(METRIKA_ID,'reachGoal','oprosnik_click');showApp(true)">Составить Health-профиль → 3 мин</button></div>
+<div id="sticky-cta"><button onclick="if(typeof ym==='function'&&METRIKA_ID)ym(METRIKA_ID,'reachGoal','oprosnik_click');showApp(true)">Составить Health-профиль</button></div>
 <script>
 
 /* ===== НАСТРОЙКИ ===== */
@@ -371,7 +401,7 @@ const QUESTIONS = [
   "Решения, которые раньше принимали за минуту, теперь откладываете?",
   "Раздражаетесь на близких или команду по мелочам?",
   "Выходные не восстанавливают - в понедельник уже устали?",
-  "Забросили спорт и хобби, потому что «нет сил и времени»?",
+  "На спорт и хобби не остаётся сил, даже когда время есть?",
   "Ловите мысль «так больше нельзя», но ничего не меняете?"
 ];
 
@@ -394,7 +424,7 @@ const SHORT = [
   "откладываю решения",
   "раздражительность",
   "выходные не восстанавливают",
-  "забросил(а) спорт и хобби",
+  "на спорт и хобби нет сил",
   "«так больше нельзя», но ничего не меняю"
 ];
 
@@ -467,23 +497,77 @@ function showResult(){
   window.__resultMsg = msg;
   $('oprosnik-link').href = OPROSNIK_URL;
 
-  /* Короткий вывод по сочетанию ответов */
+  /* Механизм по сочетанию ответов. Заглушек нет: имя есть у любого набора */
   const has = q => yesList.includes(q);
-  let razbor = "";
-  if(has(0) && has(1)){
-    razbor = "Разбитое утро + туман - похоже, дело не в количестве сна, а в его качестве: мозг не доходит до глубоких фаз восстановления. Чаще всего это ломают кофеин после обеда и экран перед сном. Первый шаг: последний кофе - до 14:00, и через 4-5 дней сравни своё утро.";
+  let mech = null;
+
+  if(has(2) && (has(0) || has(1))){
+    mech = {
+      title: 'Кофеиновая ловушка',
+      text: 'Стимуляторы маскируют усталость, но не убирают её. Когда кофеин отпускает, накрывает вдвойне, а вечером вы уже не засыпаете вовремя. Утром всё повторяется, и круг сжимается.',
+      step: 'Первый шаг: не убирайте кофе, а сдвиньте. Первая чашка через час после подъёма, последняя до 14:00.'
+    };
+  } else if(has(0) && has(1)){
+    mech = {
+      title: 'Сон есть, восстановления нет',
+      text: 'Дело не в количестве сна, а в его качестве: мозг не доходит до глубоких фаз. Поэтому утро начинается уже с дефицита, а к обеду его не хватает на фокус.',
+      step: 'Первый шаг: час без экрана перед сном, пять дней подряд. Потом сравните своё утро.'
+    };
   } else if(has(4) && has(5)){
-    razbor = "Раздражительность + выходные не спасают - это не «характер испортился», это севший ресурс: нервной системе нечем амортизировать мелочи, а привычный отдых с телефоном не перезаряжает. Первый шаг: в эти выходные 2 часа полностью без телефона и задач - прогулка или что-то руками.";
-  } else if(has(2) && has(1)){
-    razbor = "Кофе + туман - классическая ловушка: кофеин маскирует усталость, но не убирает её, и когда он отпускает - накрывает вдвойне. Первый шаг: не убирай кофе, а сдвинь - первая чашка через час после подъёма, последняя до 14:00.";
-  } else if(has(2) && has(0)){
-    razbor = "Стимуляторы днём + разбитое утро - организм берёт энергию в долг, а ночью не успевает его вернуть. Первый шаг: последний кофеин - до 14:00, неделю. Утро отблагодарит.";
+    mech = {
+      title: 'Нервная система не выключается',
+      text: 'Раздражительность по мелочам это не испортившийся характер, а севший ресурс: амортизировать нечем. Привычный отдых с телефоном не перезаряжает, потому что мозг продолжает работать.',
+      step: 'Первый шаг: в эти выходные два часа полностью без телефона и задач. Прогулка или что-то руками.'
+    };
+  } else if(has(3) && has(7)){
+    mech = {
+      title: 'Ресурс уходит на удержание',
+      text: 'Отложенные решения и мысль «так больше нельзя» это один и тот же дефицит. На выбор нужна энергия, и её не остаётся. Чем дольше это длится, тем дороже обходится каждое решение.',
+      step: 'Первый шаг: одно важное решение в день принимайте до обеда, пока ресурс ещё есть.'
+    };
+  } else if(has(5) && has(6)){
+    mech = {
+      title: 'Круг замкнулся',
+      text: 'Выходные не восстанавливают, спорт и хобби заброшены. Это замкнутый круг: чем меньше ресурса, тем меньше сил его восполнять, и дальше только глубже.',
+      step: 'Первый шаг: двадцать минут ходьбы в день. Не спорт и не спортзал, а выход из круга.'
+    };
+  } else if(has(0)){
+    mech = {
+      title: 'Утро начинается с дефицита',
+      text: 'Вы просыпаетесь уже уставшим, значит ночь не отработала. Весь день дальше строится на компенсации, а не на ресурсе.',
+      step: 'Первый шаг: фиксированное время подъёма, включая выходные. Неделю, без исключений.'
+    };
+  } else if(has(1)){
+    mech = {
+      title: 'Фокус держится на усилии',
+      text: '«Туман» к обеду это не лень и не возраст. Так выглядит нервная система, которая тратит на удержание фокуса больше, чем успевает восстановить.',
+      step: 'Первый шаг: три паузы по пять минут в день, без телефона. Не отдых, а разгрузка внимания.'
+    };
+  } else if(has(2)){
+    mech = {
+      title: 'Энергия берётся в долг',
+      text: 'Кофе, сахар и никотин не создают энергию, они занимают её у завтрашнего дня. Долг копится тихо, а отдавать приходится сразу и много.',
+      step: 'Первый шаг: последний кофеин до 14:00, неделю. Утро отблагодарит.'
+    };
+  } else if(has(5)){
+    mech = {
+      title: 'Отдых не засчитывается',
+      text: 'Выходные проходят, а понедельник начинается уставшим. Значит то, что вы считаете отдыхом, организм отдыхом не признаёт.',
+      step: 'Первый шаг: два часа в выходные полностью без телефона и задач.'
+    };
   } else if(yesCount > 0){
-    razbor = "У каждого набора «да» своя механика - двух одинаковых историй не бывает. Полная картина собирается в Health-профиле: по нему видно, что именно вас истощает.";
+    mech = {
+      title: 'Система держится, но запас тает',
+      text: 'Отдельные сигналы уже есть, хотя в систему они пока не сложились. Это лучший момент разобраться: чинить одну точку дешевле, чем вытаскивать всё сразу.',
+      step: 'Первый шаг: неделю ложитесь в одно и то же время. Это самый дешёвый способ проверить, где у вас запас.'
+    };
   }
-  if(razbor){
+
+  if(mech){
     $('razbor-block').classList.remove('hidden');
-    $('razbor-text').textContent = razbor;
+    $('razbor-title').textContent = mech.title;
+    $('razbor-text').textContent = mech.text;
+    $('razbor-step').textContent = mech.step;
   } else {
     $('razbor-block').classList.add('hidden');
   }
@@ -566,10 +650,10 @@ const Q = [
   ["Сон","Во сколько вы обычно ложитесь?","o",["До 23:00","23:00-24:00","00:00-01:00","После часа ночи","Каждый день по-разному"]],
   ["Сон","Просыпаетесь ли ночью?","o",["Нет, сплю до утра","1-2 раза, легко засыпаю обратно","Часто - крутятся мысли","Просыпаюсь под утро и уже не сплю"]],
   ["Сон","Чем занят последний час перед сном?","m",["Телефон, соцсети","Сериалы, ютуб","Работа, рабочие чаты","Книга","Дела по дому","Провожу время с семьёй"]],
-  ["Энергия","Как распределяется энергия по дню?","o",["Утром пик, к вечеру спад - норм","Долго раскачиваюсь, живу к вечеру","Провал после обеда","Ровно, но всё время на низком заряде","Скачет непредсказуемо"]],
+  ["Энергия","Как распределяется энергия по дню?","o",["Утром пик, к вечеру спад - норм","Ровно весь день, заряда хватает","Долго раскачиваюсь, живу к вечеру","Провал после обеда","Ровно, но всё время на низком заряде","Скачет непредсказуемо"]],
   ["Энергия","Сколько кофе или энергетиков в день?","o",["Не пью или почти не пью","1-2 чашки, до обеда","3-4 чашки, бывает и вечером","5+ чашек или энергетики"]],
   ["Питание","Сколько полноценных приёмов пищи в день?","o",["3 + перекусы, по режиму","2-3, более-менее стабильно","1-2, часто на бегу","Хаотично, как получится"]],
-  ["Тело","Как часто вы двигаетесь?","o",["3+ раза в неделю","1-2 раза в неделю","Редко, от случая к случаю","Сейчас нет совсем"]],
+  ["Тело","Как часто вы двигаетесь?","o",["3+ раза в неделю","1-2 раза в неделю","Редко, от случая к случаю","Сейчас нет совсем"],"Считаем любую нагрузку: зал, ходьба пешком, бассейн, велосипед"],
   ["Работа","Ваш реальный график?","o",["Стандартный, до 18-19","До 20 и позже","Ненормированный, плавающий","Своё дело - границ нет"]],
   ["Работа","Рабочие чаты вечером и в выходные?","o",["Нет, отключаюсь","Поглядываю иногда","Постоянно на связи","Работаю и по выходным"]],
   ["Работа","Уровень стресса за последний месяц?","s",["1 - штиль","10 - шторм"]],
@@ -608,7 +692,7 @@ function render(){
   box.innerHTML = '';
 
   if(type === 'o'){
-    hint.textContent = 'Выберите один вариант';
+    hint.textContent = Q[i][4] || 'Выберите один вариант';
     nextBtn.disabled = !answers[i];
     const wrap = document.createElement('div');
     wrap.className = 'opts';
@@ -685,7 +769,11 @@ function back(){
 }
 
 function buildText(){
-  let out = "Юлия, приветствую! Мой Health-профиль перед аудитом готов:\n";
+  const p = buildProfile();
+  let out = "Юлия, приветствую! Мой Health-профиль перед аудитом готов.\n";
+  out += "\nГЛАВНАЯ УТЕЧКА: " + p.leakTitle + "\n";
+  out += "ПО БЛОКАМ: " + p.blocks.map(function(b){ return b.name + " - " + b.state; }).join(', ') + "\n";
+  out += "\nМои ответы:\n";
   let lastBlock = "";
   Q.forEach((q, idx) => {
     const a = answers[idx];
@@ -719,17 +807,129 @@ function buildRecs(){
   return recs.slice(0,3);
 }
 
+/* Разбор профиля: шесть блоков, у каждого своя нагрузка.
+   Чем выше доля, тем сильнее просадка. */
+function buildProfile(){
+  const a = answers;
+  const inc = (i,v) => Array.isArray(a[i]) ? a[i].includes(v) : a[i]===v;
+  const num = i => parseInt(a[i], 10) || 0;
+  const pick = (i, map) => (map[a[i]] !== undefined ? map[a[i]] : 0);
+
+  let sleep = pick(1,{'До 23:00':0,'23:00-24:00':1,'00:00-01:00':2,'После часа ночи':3,'Каждый день по-разному':3})
+            + pick(2,{'Нет, сплю до утра':0,'1-2 раза, легко засыпаю обратно':1,'Часто - крутятся мысли':3,'Просыпаюсь под утро и уже не сплю':3});
+  let ev = 0;
+  if(inc(3,'Телефон, соцсети')) ev += 1;
+  if(inc(3,'Сериалы, ютуб')) ev += 1;
+  if(inc(3,'Работа, рабочие чаты')) ev += 2;
+  sleep += Math.min(ev, 2);
+
+  const energy = pick(4,{'Утром пик, к вечеру спад - норм':0,'Ровно весь день, заряда хватает':0,'Долго раскачиваюсь, живу к вечеру':2,'Провал после обеда':2,'Ровно, но всё время на низком заряде':3,'Скачет непредсказуемо':3})
+               + pick(5,{'Не пью или почти не пью':0,'1-2 чашки, до обеда':0,'3-4 чашки, бывает и вечером':2,'5+ чашек или энергетики':3});
+
+  const food = pick(6,{'3 + перекусы, по режиму':0,'2-3, более-менее стабильно':1,'1-2, часто на бегу':2,'Хаотично, как получится':3});
+  const move = pick(7,{'3+ раза в неделю':0,'1-2 раза в неделю':1,'Редко, от случая к случаю':2,'Сейчас нет совсем':3});
+
+  const s = num(10);
+  const stressPts = s >= 8 ? 3 : (s >= 6 ? 2 : (s >= 4 ? 1 : 0));
+  const load = pick(8,{'Стандартный, до 18-19':0,'До 20 и позже':1,'Ненормированный, плавающий':2,'Своё дело - границ нет':2})
+             + pick(9,{'Нет, отключаюсь':0,'Поглядываю иногда':1,'Постоянно на связи':2,'Работаю и по выходным':3})
+             + stressPts
+             + pick(11,{'Меньше полугода назад':0,'6-12 месяцев назад':1,'Больше года назад':2,'Не помню / отпуск всегда с ноутбуком':3});
+
+  let rec = 0;
+  if(inc(12,'Честно - ничего не помогает')) rec = 3;
+  else {
+    const n = Array.isArray(a[12]) ? a[12].length : 0;
+    rec = n === 0 ? 3 : (n === 1 ? 2 : (n === 2 ? 1 : 0));
+  }
+  if(inc(13,'Ничего системного')) rec += 2;
+
+  const blocks = [
+    {key:'sleep', name:'Сон',            val:sleep,  max:8,
+     leak:'Сон не восстанавливает',
+     why:'Вы спите, но не отдыхаете. Организм не доходит до глубоких фаз, поэтому утро начинается уже с дефицита, а не с нуля.'},
+    {key:'load',  name:'Нагрузка',       val:load,   max:11,
+     leak:'Вы не выходите из режима «бей или беги»',
+     why:'Нервная система не получает сигнала отбоя. Пока его нет, ни сон, ни выходные не засчитываются как восстановление.'},
+    {key:'energy',name:'Энергия',        val:energy, max:6,
+     leak:'Энергия берётся в долг',
+     why:'Стимуляторы дают всплеск, за который вы платите провалом через пару часов. Чем чаще занимаете, тем короче становится подъём.'},
+    {key:'rec',   name:'Восстановление', val:rec,    max:5,
+     leak:'Нет рабочего способа восстанавливаться',
+     why:'Ресурс только тратится. То, что вы пробовали, либо не подошло вам, либо не стало системой и осталось разовой попыткой.'},
+    {key:'food',  name:'Питание',        val:food,   max:3,
+     leak:'Питание не держит',
+     why:'Длинные паузы и еда на бегу заставляют организм добирать энергию быстрыми углеводами. Отсюда качели и тяга к сладкому.'},
+    {key:'move',  name:'Движение',       val:move,   max:3,
+     leak:'Тело выключено из системы',
+     why:'Без регулярной нагрузки усталость накапливается быстрее, чем уходит, и стресс не находит выхода через тело.'}
+  ];
+
+  blocks.forEach(b => {
+    b.ratio = b.max ? b.val / b.max : 0;
+    b.state = b.ratio < 0.34 ? 'в норме' : (b.ratio < 0.67 ? 'под нагрузкой' : 'провал');
+    b.color = b.ratio < 0.34 ? '#5FA872' : (b.ratio < 0.67 ? '#D9A441' : '#D4553F');
+  });
+
+  const sorted = blocks.slice().sort((x,y) => y.ratio - x.ratio);
+  const top = sorted[0];
+  const clean = top.ratio < 0.34;
+
+  return {
+    blocks: blocks,
+    leakTitle: clean ? 'Заметных утечек не видно' : top.leak,
+    leakText: clean
+      ? 'Система в целом устойчива. Дальше работаем не с поломками, а с усилением: как удержать это состояние в вашем графике надолго.'
+      : top.why,
+    goal: a[14] || ''
+  };
+}
+
 function finish(){
   $('s-quiz').classList.add('hidden');
   $('s-done').classList.remove('hidden');
+
+  const p = buildProfile();
+
+  $('profile-goal').textContent = p.goal
+    ? 'Вы хотите, чтобы через месяц изменилось одно: ' + p.goal.toLowerCase() + '. Вот что этому мешает по вашим ответам.'
+    : 'Вот что видно по вашим ответам.';
+
+  $('leak-title').textContent = p.leakTitle;
+  $('leak-text').textContent = p.leakText;
+
+  const bl = $('blocks-list');
+  bl.innerHTML = '';
+  p.blocks.forEach(b => {
+    const row = document.createElement('div');
+    row.style.cssText = 'padding:0 0 14px 0';
+    const head = document.createElement('div');
+    head.style.cssText = 'display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px';
+    const nm = document.createElement('span');
+    nm.style.cssText = 'font-size:14.5px;font-weight:600;color:var(--ink)';
+    nm.textContent = b.name;
+    const st = document.createElement('span');
+    st.style.cssText = 'font-size:12.5px;font-weight:600;color:' + b.color;
+    st.textContent = b.state;
+    head.appendChild(nm); head.appendChild(st);
+    const bar = document.createElement('div');
+    bar.style.cssText = 'height:5px;border-radius:99px;background:rgba(20,22,19,.08);overflow:hidden';
+    const fill = document.createElement('div');
+    fill.style.cssText = 'height:100%;border-radius:99px;width:' + Math.round(Math.max(8, (1 - b.ratio) * 100)) + '%;background:' + b.color;
+    bar.appendChild(fill);
+    row.appendChild(head); row.appendChild(bar);
+    bl.appendChild(row);
+  });
+
   const list = $('recs-list');
   list.innerHTML = '';
-  buildRecs().forEach(r => {
+  buildRecs().slice(0,2).forEach(r => {
     const d = document.createElement('div');
     d.style.cssText = 'padding:0 0 10px 0';
     d.textContent = '· ' + r;
     list.appendChild(d);
   });
+
   $('summary').textContent = buildText();
 }
 
@@ -740,26 +940,48 @@ function editAnswers(){
   render();
 }
 
+/* Синхронная запись в буфер. Работает внутри жеста, до потери фокуса.
+   На iOS это единственный надёжный способ: navigator.clipboard асинхронный
+   и отменяется Safari в момент, когда открывается вкладка Telegram. */
+function copySync(text){
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly','');
+  ta.style.cssText = 'position:fixed;left:-9999px;top:0;opacity:0;font-size:16px';
+  document.body.appendChild(ta);
+  const sel = window.getSelection();
+  const saved = (sel && sel.rangeCount) ? sel.getRangeAt(0) : null;
+  let ok = false;
+  try{
+    ta.contentEditable = 'true';
+    ta.readOnly = false;
+    const range = document.createRange();
+    range.selectNodeContents(ta);
+    sel.removeAllRanges();
+    sel.addRange(range);
+    ta.setSelectionRange(0, text.length);
+    ok = document.execCommand('copy');
+  }catch(e){ ok = false; }
+  document.body.removeChild(ta);
+  if(saved && sel){ sel.removeAllRanges(); sel.addRange(saved); }
+  return ok;
+}
+
 function copyAll(){
   const full = buildText();
-  let copied = false;
+
+  /* 1. Сначала синхронно, пока страница ещё в фокусе */
+  let copied = copySync(full);
+
+  /* 2. Дублируем современным API. Перезапишет тем же текстом, если успеет */
   try{
     if(navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(full).catch(function(){});
-      copied = true;
     }
   }catch(e){}
-  if(!copied){
-    /* Синхронное копирование для старых браузеров */
-    const ta = document.createElement('textarea');
-    ta.value = full; ta.setAttribute('readonly','');
-    ta.style.cssText = 'position:absolute;left:-9999px;font-size:16px';
-    document.body.appendChild(ta); ta.focus(); ta.setSelectionRange(0, full.length);
-    try{ document.execCommand('copy'); }catch(e){}
-    document.body.removeChild(ta);
-  }
+
   const btn = document.getElementById('btn-copy');
-  btn.textContent = 'Профиль скопирован ✓';
+  btn.textContent = copied ? 'Профиль скопирован ✓' : 'Скопируйте текст ниже ↓';
   setTimeout(function(){ btn.textContent = 'Отправить профиль в Telegram'; }, 4000);
   /* Часть браузеров (Яндекс, встроенные в соцсети) молча блокирует буфер.
      Поэтому всегда показываем текст на странице - его можно выделить руками. */
