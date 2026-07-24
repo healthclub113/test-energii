@@ -25,7 +25,7 @@
 <!-- /Yandex.Metrika counter -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
     --bg:#F7F4EF;
@@ -372,7 +372,7 @@ body{
     <div class="summary" id="summary"></div>
     <button class="btn-copy" id="btn-copy" onclick="copyAll()">Отправить профиль в Telegram</button>
     <a class="btn-tg" id="btn-max" href="" target="_blank">Отправить профиль в MAX</a>
-    <p style="font-size:11.5px;color:rgba(107,104,98,.65);text-align:center;margin-top:10px;line-height:1.5">Текст скопируется сам - вставьте его в чат и отправьте</p>
+    <p style="font-size:11.5px;color:rgba(107,104,98,.65);text-align:center;margin-top:10px;line-height:1.5">Профиль скопируется, а в чате уже будет приветствие. Вставьте профиль вторым сообщением и отправьте.</p>
     <div id="manual-box" style="display:none;margin-top:18px;padding:16px;background:#FFF;border:1px solid var(--line);border-radius:16px">
       <div style="font-size:13px;font-weight:700;color:var(--gold-deep);letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px">Если чат открылся пустым</div>
       <p style="font-size:13.5px;color:var(--muted);line-height:1.5;margin:0 0 10px">Нажмите кнопку ниже, затем «Скопировать» - и вставьте текст в чат.</p>
@@ -995,27 +995,27 @@ function saveImage(){
 function copyAll(){
   const full = buildText();
 
-  /* 1. Сначала синхронно, пока страница ещё в фокусе */
-  let copied = copySync(full);
-
-  /* 2. Дублируем современным API. Перезапишет тем же текстом, если успеет */
+  /* Полный профиль кладём в буфер и в блок ручной вставки. */
+  var copied = false;
+  try{ copied = copySync(full); }catch(e){}
   try{
     if(navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(full).catch(function(){});
+      copied = true;
     }
   }catch(e){}
+  showManual(full);
 
   const btn = document.getElementById('btn-copy');
-  btn.textContent = copied ? 'Профиль скопирован ✓' : 'Скопируйте текст ниже ↓';
+  btn.textContent = copied ? 'Профиль скопирован ✓ Открываю Telegram' : 'Скопируйте текст ниже ↓';
   setTimeout(function(){ btn.textContent = 'Отправить профиль в Telegram'; }, 4000);
-  /* Часть браузеров (Яндекс, встроенные в соцсети) молча блокирует буфер.
-     Поэтому всегда показываем текст на странице - его можно выделить руками. */
-  showManual(full);
-  /* Синхронное открытие в момент тапа - страница с ответами остаётся */
-  var ping = 'Юлия, вот мой Health-профиль. Полный текст вставлю следующим сообщением.';
+
+  /* В ссылку короткое приветствие: подставится в поле ввода даже во встроенном
+     браузере. Полный профиль человек вставляет вторым сообщением из буфера. */
+  var ping = 'Юлия, приветствую! Мой Health-профиль готов, вставляю его следующим сообщением.';
   var tgUrl = CONTACT_URL + '?text=' + encodeURIComponent(ping);
   const w = window.open(tgUrl, '_blank');
-  if(!w){ window.location.href = tgUrl; } /* если браузер запретил вкладку */
+  if(!w){ window.location.href = tgUrl; }
 }
 
 function showManual(text){
